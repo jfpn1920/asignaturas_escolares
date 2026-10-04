@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>asignaturas escolares</title>
+    <link rel="stylesheet" href="asignaturas_escolares.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="asignaturas_escolares.js" defer></script>
+</head>
+<body>
+    <!------------------------------------------>
+    <!--|estructuracion_asignaturas_escolares|-->
+    <!------------------------------------------>
+    <header class="encabezado">
+        <h1>Asignaturas Escolares</h1>
+        <p>Organiza tus materias y sus horarios en una tabla.</p>
+    </header>
+    <!-- Contenido principal de la página -->
+    <main>
+        <!-- Panel para agregar una materia nueva -->
+        <section class="panel">
+            <!-- Título del panel -->
+            <h2>Agregar una materia</h2>
+            <!-- Cuadrícula con los campos del formulario -->
+            <div class="campos">
+                <!-- Campo del nombre de la materia -->
+                <label>Materia
+                    <input type="text" id="materia" placeholder="Ej: Física" maxlength="25">
+                </label>
+                <!-- Lista desplegable con los días -->
+                <label>Día
+                    <select id="dia">
+                        <option>Lunes</option>
+                        <option>Martes</option>
+                        <option>Miércoles</option>
+                        <option>Jueves</option>
+                        <option>Viernes</option>
+                    </select>
+                </label>
+                <!-- Hora en que empieza la clase -->
+                <label>Hora de inicio
+                    <input type="time" id="inicio" value="07:00">
+                </label>
+                <!-- Hora en que termina la clase -->
+                <label>Hora de fin
+                    <input type="time" id="fin" value="08:00">
+                </label>
+            </div>
+            <!-- Aquí JavaScript muestra mensajes de error -->
+            <p id="mensaje"></p>
+            <!-- Botón que agrega la materia a la tabla -->
+            <button id="btnAgregar">Agregar materia</button>
+        </section>
+        <!-- Fin del formulario -->
+        <!-- Panel con la tabla de horarios -->
+        <section class="panel">
+            <!-- Título del panel -->
+            <h2>Mi horario</h2>
+            <!-- Filtro para ver solo un día -->
+            <label>Ver día
+                <select id="filtro">
+                    <option value="Todos">Todos</option>
+                    <option>Lunes</option>
+                    <option>Martes</option>
+                    <option>Miércoles</option>
+                    <option>Jueves</option>
+                    <option>Viernes</option>
+                </select>
+            </label>
+            <!-- Contenedor que permite desplazar la tabla en pantallas pequeñas -->
+            <div class="tabla-caja">
+                <!-- Tabla de materias -->
+                <table>
+                    <!-- Fila de títulos de las columnas -->
+                    <thead>
+                        <tr><th>Materia</th><th>Día</th><th>Horario</th><th>Acción</th></tr>
+                    </thead>
+                    <!-- Cuerpo de la tabla: JavaScript dibuja aquí las filas -->
+                    <tbody id="cuerpo"></tbody>
+                </table>
+            </div>
+            <!-- Mensaje que aparece cuando no hay materias -->
+            <p id="vacio" class="oculto">No hay materias para mostrar.</p>
+            <!-- Botón que vuelve al horario inicial -->
+            <button id="btnRestaurar" class="secundario">Restaurar horario inicial</button>
+        </section>
+        <!-- Fin de la tabla -->
+    </main>
+</body>
+</html>

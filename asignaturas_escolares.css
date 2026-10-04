@@ -1,0 +1,79 @@
+/* ===== Variables de color ===== */
+:root {
+  --fondo: #eef6ec;      /* fondo general verde muy suave */
+  --tinta: #1d3b2a;      /* color del texto */
+  --pizarra: #24503a;    /* verde pizarra del encabezado */
+  --blanco: #ffffff;     /* fondo de los paneles */
+  --amarillo: #f2c94c;   /* color de acento */
+  --borde: #c9dcc7;      /* color de bordes suaves */
+  --rojo: #c8333f;       /* mensajes de error y eliminar */
+}
+/* ===== Reinicio básico de márgenes ===== */
+* {
+    box-sizing: border-box; /* el padding no agranda los elementos */
+    margin: 0;
+    padding: 0;
+}
+/* ===== Estilo general del cuerpo ===== */
+body { font-family: "Trebuchet MS", Verdana, sans-serif; background: var(--fondo); color: var(--tinta); line-height: 1.5; }
+/* ===== Encabezado (como una pizarra) ===== */
+.encabezado {
+    background: var(--pizarra);
+    color: var(--blanco);
+    text-align: center;
+    padding: 40px 20px;
+    border-bottom: 8px solid var(--amarillo); /* franja amarilla como una tiza */
+}
+.encabezado h1 { font-size: 2.4rem; margin-bottom: 8px; }
+/* ===== Contenedor central ===== */
+main { max-width: 860px; margin: 0 auto; padding: 30px 20px 50px; }
+/* ===== Paneles blancos ===== */
+.panel {
+    background: var(--blanco);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+/* ===== Cuadrícula del formulario ===== */
+.campos { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
+/* ===== Etiquetas con su campo debajo ===== */
+label { display: flex; flex-direction: column; gap: 4px; font-weight: bold; }
+/* ===== Campos de texto, hora y lista desplegable ===== */
+input, select {
+    padding: 10px 12px;
+    border: 2px solid var(--borde);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+/* ===== Botones ===== */
+button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    background: var(--pizarra);
+    color: var(--blanco);
+    font-size: 1rem;
+    cursor: pointer;
+}
+button:hover { opacity: 0.85; }
+/* Botón con aspecto más discreto */
+.secundario { background: transparent; color: var(--tinta); border: 2px solid var(--borde); }
+/* Borde visible al navegar con el teclado */
+input:focus-visible, select:focus-visible, button:focus-visible { outline: 3px solid var(--amarillo); }
+/* ===== Mensaje de error ===== */
+#mensaje { color: var(--rojo); min-height: 1.5em; }
+/* ===== Tabla ===== */
+/* Filas alternadas y encabezado amarillo */
+.tabla-caja { overflow-x: auto; } /* permite desplazar la tabla en celulares */
+table { width: 100%; border-collapse: collapse; }
+th { background: var(--amarillo); text-align: left; }
+th, td { padding: 12px; border-bottom: 1px solid var(--borde); }
+tbody tr:nth-child(even) { background: #f5faf4; } /* filas alternadas */
+/* Botón pequeño para eliminar una materia */
+.btn-eliminar { background: var(--rojo); padding: 6px 12px; font-size: 0.85rem; }
+/* Clase que oculta un elemento (JavaScript la agrega y la quita) */
+.oculto { display: none; }
